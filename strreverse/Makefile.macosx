@@ -1,0 +1,12 @@
+# Mac OSX用Makefile
+SRC = strreverse-worker.c
+DST = strreverse-worker.bin
+
+prefix=/usr/local
+INCPATH=$(prefix)/include
+LIBPATH=$(prefix)/lib
+
+LIBS+=$(LIBPATH)/libgearman.dylib
+
+all:
+	g++ -O $(SRC) -o $(DST) $(LIBS)
