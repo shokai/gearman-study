@@ -10,7 +10,7 @@ Require
 Install Dependencies
 --------------------
 
-    % gem install gearman-ruby
+    % gem install gearman-ruby json
 
     # for Mac OSX
     % brew install boost gearman
@@ -22,3 +22,8 @@ Run Gearman Server
 ==================
 
     % gearmand --verbose --port 7003
+
+Build
+=====
+
+    % make -f Makefile.macosx
