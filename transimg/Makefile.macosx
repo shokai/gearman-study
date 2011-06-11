@@ -1,0 +1,21 @@
+# Mac用Makefile
+SRC = transimgWorker.cpp
+DST = transimgWorker.bin
+
+prefix=/usr/local
+INCPATH=$(prefix)/include
+LIBPATH=$(prefix)/lib
+
+LIBS+=$(LIBPATH)/libboost_program_options-mt.a
+LIBS+=$(LIBPATH)/libboost_regex-mt.a
+LIBS+=$(LIBPATH)/libgearman.dylib
+
+CV_INCPATH=$(HOME)/local/include/opencv
+CV_LIBPATH=$(HOME)/local/lib
+LIBS+=$(CV_LIBPATH)/libcv.dylib
+LIBS+=$(CV_LIBPATH)/libcxcore.dylib
+LIBS+=$(CV_LIBPATH)/libhighgui.dylib
+
+all:
+	g++ -O $(SRC) -o $(DST) -I$(CV_INCPATH) -L$(CV_LIBPATH) $(LIBS)
+
